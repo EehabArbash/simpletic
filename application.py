@@ -49,3 +49,7 @@ def check(turn):
     if session['board'][0][2] == turn and session['board'][1][1] == turn and session['board'][2][0] == turn:
             return turn
     return None
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

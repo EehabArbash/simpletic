@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+      <link href="https://fonts.googleapis.com/css?family=Patua+One&display=swap" rel="stylesheet">
+
+
         <title>Tic Tac Toe</title>
     </head>
     <style>
@@ -52,17 +60,25 @@
         {
             background-color: #00171F;
         }
+        .flow-text
+        {
+            font-family: 'Patua One', cursive;
+            font-size: 50px;
+        }
     </style>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <body>
-        <div class="col-xs-1" align = "center">
-            <table>
+        <h1 class="flow-text center">Tic Tac Toe</h1>
+        <p class="center">by <a href="https://github.com/EehabArbash">Eehab arbash</a></p>
+        <hr>
+        <div class="container">
+        <div class="col-xs-1" align = "center" style="padding: 0px 150px 150px 150px;">
+            <table class="z-depth-5" >
                 {% if win %}
                     {% for i in range(3) %}
                         <tr>
                         {% for j in range(3) %}
                             {% if board[i][j] %}
-                                <td class="{{ board[i][j] }}"">{{ board[i][j] }}</td>
+                                <td class="{{ board[i][j] }} hoverable">{{ board[i][j] }}</td>
                             {% else %}
                                 <td class="empty"> • </td>
                             {% endif %}
@@ -74,9 +90,9 @@
                         <tr>
                         {% for j in range(3) %}
                             {% if board[i][j] %}
-                                <td class="{{ board[i][j] }}"">{{ board[i][j] }}</td>
+                                <td class="{{ board[i][j] }} hoverable">{{ board[i][j] }}</td>
                             {% else %}
-                                <td class="empty"> <a href="{{ url_for('play', row=i, col=j) }}">Play {{ turn }} here </a></td>
+                                <td class="empty hoverable"> <a href="{{ url_for('play', row=i, col=j) }}">Play {{ turn }} here </a></td>
                             {% endif %}
                         {% endfor %}
                     </tr>
@@ -86,8 +102,12 @@
             {% if win%}
                 <p class="alert alert-warning win">{{ win.upper() }} Wins</p>
             {% endif %}
-            <a href="/" class="btn btn-primary btn-lg">Reset</a>
+<a href='/' class="waves-effect waves-light btn-large blue darken-1 hoverable"><i class="material-icons left">hourglass_empty</i>Reset</a>
         </div>
+</div>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
     </body>
 
 </html>
